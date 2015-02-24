@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% block more_head %}{% endblock %}
+</head>
+<body>
+<div id="content">{% block content %}{% endblock %}</div>
+<div id="footer">{% block footer %}{% endblock %}</div>
+</body>
+<script>
+{% block js_collect %}{% endblock %}
+</script>
+<style>
+{% block css_collect %}{% endblock %}
+</style>
+</html>
