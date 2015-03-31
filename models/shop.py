@@ -2,23 +2,19 @@
 
 
 
-from lib.database import BaseModel
-from peewee import CharField, DateTimeField, ForeignKeyField
+from runserver import db
 
 
 
-class Shop(BaseModel):
-    name = CharField()
+class Shop(db.Model):
+    __tablename__ = 'shop'
 
-class ItemList(BaseModel):
-    name = CharField()
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=True)
 
-class ShopKeeper(BaseModel):
-    name = CharField()
 
-class Item(BaseModel):
-    name = CharField()
-    created_at = DateTimeField()
-    shop = ForeignKeyField(Shop)
-    item_list = ForeignKeyField(ItemList)
-    shop_keeper = ForeignKeyField(ShopKeeper)
+
+
+if __name__ == "__main__":
+    print Shop.metadata.create_all(db.engine)
+    shop = Shop(name='name1')

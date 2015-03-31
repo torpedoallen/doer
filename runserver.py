@@ -4,9 +4,11 @@
 
 from flask import Flask, g
 from views import login_page
+from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
+db = SQLAlchemy(app)
 
 
 @app.before_request
